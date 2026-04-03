@@ -1,7 +1,7 @@
 Attribute VB_Name = "Module2"
 
 '===============================================================================
-' Function: GetPerfumeSourceFromColor
+' Function: GetSourceFromColor
 '
 ' Description:
 '   Populates the "Source" field with either "house site" or "BaseNotes.com", depending on the highlighting in "Perfume" field.
@@ -31,7 +31,7 @@ Attribute VB_Name = "Module2"
 '===============================================================================
 
 
-Function GetPerfumeSourceFromColor(cell As Range, _
+Function GetSourceFromColor(cell As Range, _
                        Optional houseColor As Long = -1, _
                        Optional baseNotesColor As Long = -1) As String
 
@@ -39,17 +39,17 @@ Function GetPerfumeSourceFromColor(cell As Range, _
     If baseNotesColor = -1 Then baseNotesColor = RGB(146, 208, 80)
     
     If cell Is Nothing Then
-        GetPerfumeSourceFromColor = ""
+        GetSourceFromColor = ""
         Exit Function
     End If
 
     Select Case cell.Interior.Color
         Case houseColor
-            GetPerfumeSourceFromColor = "house website"
+            GetSourceFromColor = "house website"
         Case baseNotesColor
-            GetPerfumeSourceFromColor = "BaseNotes.com"
+            GetSourceFromColor = "BaseNotes.com"
         Case Else
-            GetPerfumeSourceFromColor = ""
+            GetSourceFromColor = ""
     End Select
 End Function
 
